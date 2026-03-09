@@ -1,0 +1,5 @@
+#!/bin/bash
+
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -nostdlib -Ttext 0x08000000 main.c -o main.elf && arm-none-eabi-objcopy -O binary main.elf main.bin
+
+st-flash write main.bin 0x08000000
